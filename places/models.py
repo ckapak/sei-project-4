@@ -11,6 +11,7 @@ class Place(models.Model):
   longitude = models.DecimalField(max_digits=6, decimal_places=3)
   description = models.CharField(max_length=300, default='')
   image = models.CharField(max_length=500)
+  facilities = models.ManyToManyField('facilities.Facility', related_name='facilities', blank=True)
 
   def __str__(self):
     return self.name
