@@ -17,7 +17,6 @@ class RegisterView(APIView):
 
         return Response(serializer.errors, status=422)
 
-
 class LoginView(APIView):
 
     def get_user(self, email):
