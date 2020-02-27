@@ -38,6 +38,27 @@ class PlaceDetailView(APIView):
       except Place.DoesNotExist:
         return Response({ 'message': 'Not found'}, status=HTTP_404_NOT_FOUND)  
 
+# update a single place
+    def put(self, request, pk):
+      try:
+        place = Place.objects.get(pk=pk)
+        updated_place = PlaceSerializer(place, data=request.data)
+        if updated_place.is_valid():
+          updated_place.save()
+          return Response(updated_place.data, status=HTTP_202_ACCEPTED)
+        return Response(updated_place.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+      except Place.DoesNotExist:
+        return Response({'message': 'Not Found'}, status=HTTP_404_NOT_FOUND)
+
+# delete a single place
+    def delete(self, _request, pk):
+      try:
+        place = Place.objects.get(pk=pk)
+        place.delete()
+        return Response(status=HTTP_204_NO_CONTENT)
+      except Place.DoesNotExist:
+        return Response({'message': 'Not Found'}, status=HTTP_404_NOT_FOUND)
+
 class CommentListView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly, )
 
