@@ -6,14 +6,14 @@ class PlaceSerializer(serializers.ModelSerializer):
 
   class Meta:
     model = Place
-    fields = ('id', 'name')
+    fields = '__all__'
 
 class FacilitySerializer(serializers.ModelSerializer):
 
   class Meta:
     model = Facility
-    fields = ('id', 'name')
+    fields = '__all__'
 
 class PopulatedFacilitySerializer(FacilitySerializer):
 
-  places = PlaceSerializer(many=True)
+    places = PlaceSerializer(many=True)
