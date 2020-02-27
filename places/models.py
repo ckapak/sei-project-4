@@ -3,8 +3,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
-# Need to add another field? Add it in the relevant model and put default=''. makemigrations
-# Then select option 2 from the terminal and migrate
+# Need to add another field? Add it in the relevant model and put default='', then makemigrations
+# And select option 2 from the terminal and migrate
 
 class Place(models.Model):
   name = models.CharField(max_length=50) 

@@ -13,15 +13,15 @@ class PlaceListView(APIView):
 
 # get all the places
     def get(self, _request):
-        places = Place.objects.all() # get all the places
-        print(places)
-        serialized_place = PopulatedPlaceSerializer(places, many=True)
-        return Response(serialized_place.data) # send the JSON to the client
+      places = Place.objects.all() # get all the places
+      print(places)
+      serialized_place = PopulatedPlaceSerializer(places, many=True)
+      return Response(serialized_place.data) # send the JSON to the client
 
 # create a place
     def post(self, request):
       place = PlaceSerializer(data=request.data)
-      print(place)
+      request.data['owner'] = request.user.id 
       if place.is_valid():
         place.save()
         return Response(place.data, status=HTTP_201_CREATED)
@@ -44,6 +44,7 @@ class CommentListView(APIView):
 # create a comment
     def post(self, request, pk):
       request.data['place'] = pk
+      request.data['owner'] = request.user.id
       comment = CommentSerializer(data=request.data)
 
       if comment.is_valid():
