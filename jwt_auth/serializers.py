@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-import django.contrib.auth.password_validation as validations
+# import django.contrib.auth.password_validation as validations
 from django.contrib.auth.hashers import make_password
-from django.core.exceptions import ValidationError
+# from django.core.exceptions import ValidationError
 User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
@@ -18,14 +18,14 @@ class UserSerializer(serializers.ModelSerializer):
         if password != password_confirmation:
             raise serializers.ValidationError({'password_confirmation': 'Passwords do not match'})
 
-        try:
-            validations.validate_password(password=password)
-        except ValidationError as err:
-            raise serializers.ValidationError({'password': err.messages})
+        # try:
+        #     validations.validate_password(password=password)
+        # except ValidationError as err:
+        #     raise serializers.ValidationError({'password': err.messages})
 
         data['password'] = make_password(password)
         return data
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'password_confirmation',)
+        fields = '__all__'

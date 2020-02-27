@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "model": "places.place",
+    "pk": 1,
+    "fields": {
+      "name": "Joe & The Juice",
+      "address": "113 Cannon St, London EC4N 5AR",
+      "postcode": "EC4N 5AR",
+      "latitude": "51.511",
+      "longitude": "-0.089",
+      "description": "Joe & The Juice is ideal for remote workers, who want healthy bites, and fresh juices.  Laptops are more than welcome here, and all you need is a table near a plug socket.",
+      "image": "https://images.happycow.net/venues/1024/13/80/hcmp138049_473717.jpeg",
+      "facilities": [
+        1,
+        4
+      ]
+    }
+  }
+]
