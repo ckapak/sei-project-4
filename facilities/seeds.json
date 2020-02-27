@@ -1,0 +1,37 @@
+[
+{
+  "model": "facilities.facility",
+  "pk": 1,
+  "fields": {
+    "name": "Wifi"
+  }
+},
+{
+  "model": "facilities.facility",
+  "pk": 2,
+  "fields": {
+    "name": "Comfy sofas"
+  }
+},
+{
+  "model": "facilities.facility",
+  "pk": 3,
+  "fields": {
+    "name": "Cafe onsite"
+  }
+},
+{
+  "model": "facilities.facility",
+  "pk": 4,
+  "fields": {
+    "name": "Charging Plugs"
+  }
+},
+{
+  "model": "facilities.facility",
+  "pk": 5,
+  "fields": {
+    "name": "Desks"
+  }
+}
+]

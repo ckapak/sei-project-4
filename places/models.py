@@ -1,3 +1,5 @@
+# pylint: disable=no-member
+
 from django.db import models
 
 # Need to add another field? Add it in the relevant model and put default=''. makemigrations
