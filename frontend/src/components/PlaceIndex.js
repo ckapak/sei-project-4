@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Card from './PlaceCard'
 // import MapGL from 'react-map-gl'
 // import 'mapbox-gl/dist/mapbox-gl.css'
 
@@ -7,7 +8,7 @@ const mapboxToken = process.env.MAPBOX_ACCESS_TOKEN
 
 class PlaceIndex extends React.Component {
   state = {
-    places: [''],
+    places: [],
     viewport: {
       latitude: 51.5074,
       longitude: 0.1278
@@ -31,7 +32,9 @@ class PlaceIndex extends React.Component {
       
       const response = await axios.get(`/api/places?${queries.join('&')}`)
 
-      console.log(response)
+      console.log(response.data)
+
+      this.setState({ places: response.data  })
   }
 
   convertPostcode = async (location) => {
@@ -55,12 +58,16 @@ class PlaceIndex extends React.Component {
 
   render() {
     return(
-      <h1>Hello</h1>
-
-
-    )
+      <section className="section">
+        <div className="container">
+          <div className="columns is-mobile is-multiline">
+            {this.state.places.map(place =>( 
+              <Card key={place.id} {...place}/>
+            ))}
+          </div>
+        </div>
+      </section>    )
   }
-
 }
 
 export default PlaceIndex
