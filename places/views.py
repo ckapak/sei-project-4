@@ -11,11 +11,20 @@ from .serializers import PlaceSerializer, PopulatedPlaceSerializer, CommentSeria
 class PlaceListView(APIView): 
     permission_classes = (IsAuthenticatedOrReadOnly, )
 
-# get all the places
-    def get(self, _request):
-      places = Place.objects.all() # get all the places
-      print(places)
-      serialized_place = PopulatedPlaceSerializer(places, many=True)
+# filter locations
+    def get(self, request):
+      """
+      Optionally restricts the returned place to a given user,
+      by filtering against a `postcode` query parameter in the URL.
+      """
+      queryset = Place.objects.all()
+      postcode = self.request.query_params.get('postcode', None)
+      if postcode is not None:
+        queryset = queryset.filter(postcode__istartswith=postcode)
+      facilities = self.request.query_params.get('facilities', None)
+      if facilities is not None:
+        queryset = queryset.filter(facilities__name__icontains=facilities)
+      serialized_place = PopulatedPlaceSerializer(queryset, many=True)
       return Response(serialized_place.data) # send the JSON to the client
 
 # create a place

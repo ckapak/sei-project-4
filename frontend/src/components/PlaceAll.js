@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-class PlacesAll extends React.Component {
+class PlaceAll extends React.Component {
 
   state = {
     data: {
@@ -42,4 +42,4 @@ class PlacesAll extends React.Component {
     )}
 
 }
-export default PlacesAll
+export default PlaceAll

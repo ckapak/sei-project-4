@@ -1,18 +1,11 @@
-// user inputs their postcode 
-// clicks on multiple categories 
-// filters through the list of places,
-// page gives you a list of places
-
 import React from 'react'
 import Select from 'react-select'
 
 class Home extends React.Component {
 
   state = {
-    search_data: {
-      postcode: '',
-      choices: ['']
-    }
+    postcode: '',
+    choices: ['']
   }
 
   options = [
@@ -25,23 +18,21 @@ class Home extends React.Component {
     
   handleMultiChange = (selected) => {
     const choices = selected ? selected.map(item => item.value) : []
-    const search_data = { ...this.state.search_data, choices }
-    this.setState({ search_data })
+    this.setState({ choices })
   } 
 
   handleChange = e => {
-    const data = { ...this.state.data, [e.target.name]: e.target.value }
-    this.setState({ data })
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
     const find_location = {
-      ...this.state.data,
-      postcode: this.state.data.postcode.replace(' ', ''),
+      postcode: this.state.postcode.replace(' ', ''),
+      choices: this.state.choices
     }
     this.props.history.push({
-      pathname: '/places',
+      pathname: '/places/search',
       search: '',
       state: { find_location }
     })
@@ -53,7 +44,7 @@ class Home extends React.Component {
         <>
           <h1>Find your place to be</h1>
           <hr />
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className="field">
             <label className="label">Enter your postcode</label>
             <input
