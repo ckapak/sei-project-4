@@ -13,7 +13,7 @@ class PlaceAll extends React.Component {
 
   getData = async() => {
     try {
-      const { data } = await axios.get('api/places/')
+      const { data } = await axios.get('/api/places/')
       this.setState({ data })
     } catch(err) {
       console.log(err)

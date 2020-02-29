@@ -4,10 +4,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import '../src/stylesheets/main.scss'
 import 'bulma'
 
-import Home from './components/Home'
-import Navbar from './components/Navbar'
-import All from './components/PlaceAll'
-import Filtered from './components/PlaceIndex'
+import Home from './components/common/Home'
+import Navbar from './components/common/Navbar'
+import All from './components/places/PlaceAll'
+import Filtered from './components/places/PlaceIndex'
+import Show from './components/places/PlaceShow'
 
 const App = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route path="/places/search" component={Filtered} />
         <Route path="/places" component={All} />
+        <Route path="/place/:id" component={Show} />
       </Switch>
     </main>
   </BrowserRouter>

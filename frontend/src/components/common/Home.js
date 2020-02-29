@@ -10,7 +10,7 @@ class Home extends React.Component {
 
   options = [
     { value: 'desks', label: 'Desks'},
-    { value: 'charging', label: 'Charging Point'},
+    { value: 'charging', label: 'Charging Plugs'},
     { value: 'cafe', label: 'Cafe onsite'},
     { value: 'sofas', label: 'Comfy sofas'},
     { value: 'wifi', label: 'Wifi'}
