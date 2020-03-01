@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 // import { Link } from 'react-router-dom'
-import Auth from '../auth/Auth'
+import Auth from '../../lib/auth'
 
 class PlaceShow extends React.Component {
 
@@ -54,7 +54,7 @@ class PlaceShow extends React.Component {
 
   // isOwner = () => {
   //   console.log(this.state.place.user)
-  //   return Auth.getPayload().sub === this.state.place.user._id
+  //   return Auth.getPayload().sub === this.state.place.user.id
   // }
 
   render() {
