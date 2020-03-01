@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
-import { headers } from '../../lib/headers'
+import { getHeaders } from '../../lib/headers'
 // import notification from '../../lib/notification'
 
 class Login extends React.Component {
@@ -24,9 +24,10 @@ class Login extends React.Component {
     let res
 
     try {
-      res =  await axios.post('/api/login', this.state.data, headers)
+      res =  await axios.post('/api/login', this.state.data, { headers: getHeaders() })
     } catch (err) {
       this.setState({ error: 'Incorrect Credentials' })
+      return
     }
 
     Auth.setToken(res.data.token)
