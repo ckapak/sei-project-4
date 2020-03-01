@@ -10,6 +10,8 @@ class NavBar extends React.Component {
           <div className="navbar-brand">
             <Link className="navbar-item" to="/">A Quiet Place to Be</Link>
             <Link className="navbar-item" to="/places">See all places</Link>
+            <Link className="navbar-item" to="/register">Signup</Link>
+            <Link className="navbar-item" to="/login">Login</Link>
           </div>
         </div>
       </nav> 

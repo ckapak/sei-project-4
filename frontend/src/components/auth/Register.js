@@ -7,15 +7,15 @@ class Register extends React.Component {
       username: '',
       email: '',
       password: '',
-      passwordConfirmation: ''
+      password_confirmation: ''
     },
     errors: {}
   }
 
   handleChange = e => {
-    const data = { ...this.state.data, [e.target.name]: e.target.value } // * make a copy of the data object in state, and update the field that the user is typing in, we identify this from the name attribute of the input (e.target.name)
-    const errors = { ...this.state.errors, [e.target.name]: '' }
-    this.setState({ data, errors }) // * set the new data object into state to replace the old one
+    const data = { ...this.state.data, [e.target.name]: e.target.value }
+    const errors = { ...this.state.errors, [e.target.name]: '' } 
+    this.setState({ data, errors }) 
   }
 
   handleSubmit = async e => {
@@ -36,6 +36,7 @@ class Register extends React.Component {
           <div className="columns">
             <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter card">
               <h2 className="title">Register</h2>
+              
               <div className="field">
                 <label className="label">Username</label>
                 <div className="control">
@@ -46,8 +47,9 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.username && <small className="help is-danger">{this.state.errors.username.message}</small>}
+                {this.state.errors.username && <small className="help is-danger">{this.state.errors.username}</small>}              
               </div>
+
               <div className="field">
                 <label className="label">Email</label>
                 <div className="control">
@@ -58,8 +60,9 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.email && <small className="help is-danger">{this.state.errors.email.message}</small>}
+                {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
               </div>
+
               <div className="field">
                 <label className="label">Password</label>
                 <div className="control">
@@ -71,21 +74,23 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.password && <small className="help is-danger">{this.state.errors.password.message}</small>}
+                {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
               </div>
+
               <div className="field">
                 <label className="label">Password Confirmation</label>
                 <div className="control">
                   <input
-                    className={`input ${this.state.errors.passwordConfirmation} ? : 'is-danger' : '' `}
-                    name="passwordConfirmation"
+                    className={`input ${this.state.errors.password_confirmation} ? : 'is-danger' : '' `}
+                    name="password_confirmation"
                     type="password"
                     placeholder="Password Confirmation"
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.passwordConfirmation && <small className="help is-danger">{this.state.errors.passwordConfirmation.message}</small>}
+                {this.state.errors.password_confirmation && <small className="help is-danger">{this.state.errors.password_confirmation}</small>}
               </div>
+
               <div className="field">
                 <div className="control">
                   <button type="submit" className="button is-warning is-fullwidth">Register</button>
