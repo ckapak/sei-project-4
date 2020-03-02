@@ -1,45 +1,37 @@
 import React from 'react'
 import axios from 'axios'
+import PlaceCard from './PlaceCard'
 
 class PlaceAll extends React.Component {
 
   state = {
-    data: {
-      name: '',
-      image: '',
-      address: ''
-    }
+    places: []
   }
 
-  getData = async() => {
+  async componentDidMount()  {
+    console.log('ComponentDidMount in Index has run')
     try {
-      const { data } = await axios.get('/api/places/')
-      this.setState({ data })
-    } catch(err) {
-      console.log(err)
+      const response = await axios.get('/api/places')
+      this.setState({ places: response.data })
+      console.log(response)
+    } catch (err) {
+      this.props.history.push('/notfound')
     }
-  }
-
-  componentDidMount() {
-    this.getData()
   }
 
   render() {
-    const { data } = this.state
-    return(
-      <>
-        <h1>Index Page</h1>
-        {
-          data.length && data.map(data => {
-            return <div key={data.id}>
-              <p>{data.name}</p>
-              <img src={data.image} alt={data.name}/>        
-              <p>{data.address}</p>   
-              </div>
-          })
-        }
-      </>
-    )}
+    return (
+      <section className="section">
+        <div className="container">
+          <div className="columns is-mobile is-multiline">
+            {this.state.places.map(place =>( 
+              <PlaceCard id={place.id} key={place.id} {...place}/>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
 }
 export default PlaceAll

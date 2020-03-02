@@ -4,9 +4,19 @@ import { Link } from 'react-router-dom'
 const PlaceCard = ({ id, name, image, description }) => (
 
 <Link to={`/place/${id}`}>
-  <h1>{name}</h1>
-  <img src={image} alt={name}/>
-  <h1>{description}</h1>
+  <div className="card">
+    <div className="card-header">
+      <h4 className="card-header-title">{name}</h4>
+    </div>
+    <div className="card-image">
+      <figure className="image">
+        <img src={image} alt={name}/>
+      </figure>
+    </div>
+    <div className="card-content">
+      <h5 className="title is-6">{description}</h5>
+    </div>
+  </div>
 </Link>
 )
 
