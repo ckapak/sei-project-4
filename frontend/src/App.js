@@ -13,6 +13,7 @@ import Show from './components/places/PlaceShow'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import New from './components/places/PlaceCreate'
+import Map from './components/places/PlacesMap'
 
 const App = () => (
   <BrowserRouter>
@@ -26,6 +27,7 @@ const App = () => (
         <Route path="/place/:id" component={Show} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
+        <Route path="/maps" component={Map} />
       </Switch>
     </main>
   </BrowserRouter>
