@@ -26,7 +26,6 @@ const App = () => (
         <Route path="/place/:id" component={Show} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/map" component={Map} />
       </Switch>
     </main>
   </BrowserRouter>

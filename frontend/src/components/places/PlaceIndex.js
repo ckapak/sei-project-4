@@ -15,10 +15,24 @@ class PlaceIndex extends React.Component {
     }
   }
 
-  async componentDidMount() {
-    const findLocation = this.props.history.location.state.find_location
-    // const first_place = this.state.places[0] ? this.state.places[0] : findLocation
+  componentDidMount() {
+    this.convertData()
+  }
 
+  checkResults = (places) => {
+    const noResult = true
+
+    if (!places.length) {
+      this.props.history.push({
+        pathname: '/places',
+        search: '',
+        state: { noResult }
+      })
+    }
+  } 
+
+  convertData = async() => {
+    const findLocation = this.props.history.location.state.find_location
     const shortPostcode = findLocation.postcode
       .replace(/[^a-z0-9]/gi, '')
       .slice(0, 3).toLowerCase()
@@ -34,8 +48,11 @@ class PlaceIndex extends React.Component {
 
       console.log(response.data)
 
-      this.setState({ places: response.data  })
+      this.setState({ places: response.data })
+      this.checkResults(response.data)
   }
+
+  // const first_place = this.state.places[0] ? this.state.places[0] : findLocation
 
   convertPostcode = async (location) => {
     const resMap = await axios.get(
@@ -66,7 +83,8 @@ class PlaceIndex extends React.Component {
             ))}
           </div>
         </div>
-      </section>    )
+      </section>    
+      )
   }
 }
 
