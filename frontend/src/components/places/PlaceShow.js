@@ -11,7 +11,6 @@ class PlaceShow extends React.Component {
   }
 
   async componentDidMount() {
-    debugger
     const placeId = this.props.match.params.id
     try {
       const response = await axios.get(`/api/places/${placeId}`)
@@ -52,10 +51,10 @@ class PlaceShow extends React.Component {
     }
   }
 
-  // isOwner = () => {
-  //   console.log(this.state.place.user)
-  //   return Auth.getPayload().sub === this.state.place.user.id
-  // }
+//   isOwner = () => {
+//     console.log(this.state.place.user)
+//     return Auth.getPayload().sub === this.state.place.user.id
+// }
 
   render() {
     if (!this.state.place.id)
@@ -68,6 +67,7 @@ class PlaceShow extends React.Component {
       <section className="section show">
         <div className="container">
           <h2 className="title">{place.name}</h2>
+          <h2 className="address">You'll find it here: {place.address}</h2>
           <hr />
           <div className="columns">
             <div className="column is-half">
@@ -79,6 +79,14 @@ class PlaceShow extends React.Component {
               <h4 className="title is-4">What we enjoy most about {place.name}</h4>
               <p>{place.description}</p>
               <hr />
+
+              <h4 className="title is-4">The amenities</h4>
+              <div className="facility-text">{place.facilities.map(facility =>
+                <div key={facility.id}>
+                  {facility.name}
+                </div>)}</div>
+                <hr />
+
               <form className="form title is-4" onSubmit={this.handleSubmit}>
                 Tell us what you think!
                 <hr />
@@ -88,17 +96,20 @@ class PlaceShow extends React.Component {
                 <br />
                 <input type="submit" value="Submit" />
               </form>
+
               <div className="comment-text">{place.comments.map(comment =>
                 <div key={comment.id}>
                   {comment.text}
                 </div>)}</div>
               <hr />
+
               {/* {this.isOwner() &&
                 <>
-                  <Link to={`/places/${place._id}/edit`} className="button is-warning">Edit</Link>
+                  <Link to={`/places/${place.id}/edit`} className="button is-warning">Edit</Link>
                   <button onClick={this.handleDelete} className="button is-danger">Delete</button>
                 </>
               } */}
+
             </div>
           </div>
         </div>

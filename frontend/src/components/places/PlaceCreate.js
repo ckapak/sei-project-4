@@ -1,5 +1,8 @@
 import React from 'react'
 import PlaceForm from './PlaceForm'
+// import { headers } from '../../lib/headers'
+import Auth from '../../lib/auth'
+
 import axios from 'axios'
 
 class PlaceCreate extends React.Component {
@@ -39,7 +42,9 @@ class PlaceCreate extends React.Component {
     e.preventDefault()
 
     try {
-      const { data } = await axios.post('/api/places/', this.state.data)
+      const { data } = await axios.post('/api/places/', this.state.data, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
       this.props.history.push(`/places/${data.id}`)
     } catch (err) {
       this.setState({ errors: err.response.data.errors })
@@ -55,6 +60,7 @@ class PlaceCreate extends React.Component {
             data={this.state.data}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
+            options = {this.options}
             handleMultiChange={this.handleMultiChange}
             errors={this.state.errors}
           />

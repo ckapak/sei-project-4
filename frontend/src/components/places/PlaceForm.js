@@ -1,8 +1,9 @@
 import React from 'react'
 import Select from 'react-select'
 
-const PlaceForm = ({ data, handleChange, handleSubmit, handleMultiChange, errors }) => (
-
+const PlaceForm = ({ data, options, handleChange, handleSubmit, handleMultiChange, errors }) => {
+  return (
+  
   <div className="columns">
 
     <form onSubmit={handleSubmit} className="column is-half is-offset-one-quarter card">
@@ -16,6 +17,7 @@ const PlaceForm = ({ data, handleChange, handleSubmit, handleMultiChange, errors
             name="name"
             onChange={handleChange}
             value={data.name}
+            required={true}
           />
         </div>
         {errors.name && <small className="help is-danger">{errors.name}</small>}
@@ -79,7 +81,7 @@ const PlaceForm = ({ data, handleChange, handleSubmit, handleMultiChange, errors
         <label className="label">Select the facilities from the dropdown below</label>
         <div className="control">
         <Select
-          options={data.choices}
+          options={options}
           isMulti
           onChange={handleMultiChange} 
           />
@@ -94,5 +96,5 @@ const PlaceForm = ({ data, handleChange, handleSubmit, handleMultiChange, errors
     </form>
   </div>
 )
-
+}
 export default PlaceForm

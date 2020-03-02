@@ -9,7 +9,6 @@ class PlaceAll extends React.Component {
   }
 
   async componentDidMount()  {
-    console.log('ComponentDidMount in Index has run')
     try {
       const response = await axios.get('/api/places')
       this.setState({ places: response.data })
