@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import MapGL, { Marker } from 'react-map-gl'
+import MapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 const mapboxToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
@@ -14,7 +14,8 @@ class Map extends React.Component {
       longitude: -0.118092, 
       latitude: 51.509865, 
       zoom: 12 
-    }  
+    },
+    popupInfo: null
   }
 
   async componentDidMount() {
@@ -46,10 +47,26 @@ class Map extends React.Component {
             latitude={parseFloat(place.latitude)}
             longitude={parseFloat(place.longitude)}
             >
-              <div>Place</div>
+              <div>
+                <img
+                className="marker"
+                src={place.name}
+                alt={place.name}
+                onMouseOver={() => this.setState({ popupInfo: place })}
+                onMouseOut={() => this.setState({ popupInfo: null })}
+                />
+              </div>
             </Marker>
-          )})
-        }
+          )})}
+          {this.state.showInfo &&
+            <Popup tipSize={5}
+              anchor="bottom-right"
+              closeButton={false}
+              longitude={Number(this.state.popupInfo.longitude)}
+              latitude={Number(this.state.popupInfo.latitude)}>
+              <p>{this.state.popupInfo.place}</p>
+            </Popup>
+          }
       </MapGL>
     )
   }
