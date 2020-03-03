@@ -64,6 +64,7 @@ class PlaceShow extends React.Component {
     console.log(this.state.place)
     console.log(this.state.text, 'text')
     return (
+      
       <section className="section show">
         <div className="container">
           <h2 className="title">{place.name}</h2>
@@ -89,7 +90,6 @@ class PlaceShow extends React.Component {
 
               <form className="form title is-4" onSubmit={this.handleSubmit}>
                 Tell us what you think!
-                <hr />
                 <textarea name="text" onChange={this.handleChange}
                   value={this.state.text}
                   placeholder="Type your comment here...maximum character length is 50"></textarea>
@@ -97,11 +97,30 @@ class PlaceShow extends React.Component {
                 <input type="submit" value="Submit" />
               </form>
 
-              <div className="comment-text">{place.comments.map(comment =>
+              <article className="media">
+                  {/* <figure className="media-left">
+                    <p class="image is-64x64">
+                      <img src="https://bulma.io/images/placeholders/128x128.png" />
+                    </p>
+                  </figure> */}
+                  <div className="media-content">
+                    <div className="content"> {place.comments.map(comment =>
+                        <div key={comment.id}>
+                      <p>
+                        <strong>{comment.owner.username}</strong>
+                        <br/>"{comment.text}"<br/>
+                      </p>
+                      <hr />
+                    </div>)}
+                  </div>
+                  </div>
+                </article>
+
+              {/* <div className="comment-text">{place.comments.map(comment =>
                 <div key={comment.id}>
                   <h2>{comment.text} - {comment.owner}</h2>
                 </div>)}</div>
-              <hr />
+              <hr /> */}
 
               {/* {this.isOwner() &&
                 <>

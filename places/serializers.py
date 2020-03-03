@@ -3,12 +3,13 @@ from django.contrib.auth import get_user_model
 
 from facilities.models import Facility
 from .models import Place, Comment
-User = get_user_model
+User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
+
   class Meta:
-    model = Facility
-    field = ('id', 'username')
+    model = User
+    fields = ('id', 'username')
 
 class FacilitySerializer(serializers.ModelSerializer):
 
@@ -29,12 +30,11 @@ class PlaceSerializer(serializers.ModelSerializer):
     fields = '__all__'
 
 class PopulatedCommentSerializer(CommentSerializer):
-  
   owner = UserSerializer()
 
 class PopulatedPlaceSerializer(PlaceSerializer):
   facilities = FacilitySerializer(many=True)
-  comments = CommentSerializer(many=True)
+  comments = PopulatedCommentSerializer(many=True)
 
   class Meta:
     model = Place
