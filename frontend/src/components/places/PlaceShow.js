@@ -30,7 +30,7 @@ class PlaceShow extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const placeId = this.props.match.params.id
-    axios.post(`/api/places/${placeId}/comments`, { text: this.state.text }, {
+    axios.post(`/api/places/${placeId}/comments/`, { text: this.state.text }, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
@@ -99,7 +99,7 @@ class PlaceShow extends React.Component {
 
               <div className="comment-text">{place.comments.map(comment =>
                 <div key={comment.id}>
-                  {comment.text}
+                  <h2>{comment.text} - {comment.owner}</h2>
                 </div>)}</div>
               <hr />
 
