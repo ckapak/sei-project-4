@@ -24,7 +24,7 @@ class Login extends React.Component {
     let res
 
     try {
-      res =  await axios.post('/api/login', this.state.data, headers)
+      res = await axios.post('/api/login', this.state.data, headers)
     } catch (err) {
       this.setState({ error: 'Incorrect Credentials' })
       return
@@ -37,37 +37,41 @@ class Login extends React.Component {
 
   render() {
     return (
-      <section className="section">
-        <div className="container">
-          <div className="columns">
-            <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter card">
-              <h2 className="title">Login</h2>
-              <div className="field">
-                <label className="label">Email</label>
-                <div className="control">
-                  <input
-                    className={`input ${this.state.error} ? : 'is-danger' : '' `}
-                    name="email"
-                    placeholder="Email"
-                    onChange={this.handleChange}
-                  />
+      <section className="hero is-primary">
+        <div className="hero-body">
+          <div className="columns is-centered">
+            <div className="column is-half">
+              <form onSubmit={this.handleSubmit}>
+                <h2 className="title has-text-centered is-size-2">Login</h2>
+                <div className="notification is-light">
+                  <div className="field">
+                    <label className="label">Email</label>
+                    <div className="control">
+                      <input
+                        className={`input ${this.state.error} ? : 'is-danger' : '' `}
+                        name="email"
+                        placeholder="Email"
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label className="label">Password</label>
+                    <div className="control">
+                      <input
+                        className={`input ${this.state.error} ? : 'is-danger' : '' `}
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    {this.state.error && <small className="help is-danger">{this.state.error}</small>}
+                  </div>
+                  <button type="submit" className="button is-info is-rounded is-outlined is-medium is-fullwidth">Login</button>
                 </div>
-              </div>
-              <div className="field">
-                <label className="label">Password</label>
-                <div className="control">
-                  <input
-                    className={`input ${this.state.error} ? : 'is-danger' : '' `}
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={this.handleChange}
-                  />
-                </div>
-                {this.state.error && <small className="help is-danger">{this.state.error}</small>}
-              </div>
-              <button type="submit" className="button is-warning is-fullwidth">Login</button>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </section>

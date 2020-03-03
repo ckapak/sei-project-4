@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import MapGL, { Marker, Popup } from 'react-map-gl'
-import { FaMapMarkerAlt } from 'react-icons/fa'
+import { FaForumbee } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -51,7 +51,7 @@ class Map extends React.Component {
             longitude={parseFloat(place.longitude)}
             >
               <Link to={`/place/${place.id}`}>
-                <FaMapMarkerAlt
+                <FaForumbee
                 className="marker"
                 src={place.name}
                 // alt={place.name}
