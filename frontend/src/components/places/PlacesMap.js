@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 import MapGL, { Marker, Popup } from 'react-map-gl'
+import { FaMapMarkerAlt } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 const mapboxToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
@@ -47,24 +50,24 @@ class Map extends React.Component {
             latitude={parseFloat(place.latitude)}
             longitude={parseFloat(place.longitude)}
             >
-              <div>
-                <img
+              <Link to={`/place/${place.id}`}>
+                <FaMapMarkerAlt
                 className="marker"
                 src={place.name}
-                alt={place.name}
+                // alt={place.name}
                 onMouseOver={() => this.setState({ popupInfo: place })}
                 onMouseOut={() => this.setState({ popupInfo: null })}
                 />
-              </div>
+              </Link>
             </Marker>
           )})}
-          {this.state.showInfo &&
+          {this.state.popupInfo &&
             <Popup tipSize={5}
               anchor="bottom-right"
               closeButton={false}
               longitude={Number(this.state.popupInfo.longitude)}
               latitude={Number(this.state.popupInfo.latitude)}>
-              <p>{this.state.popupInfo.place}</p>
+              <p>{this.state.popupInfo.name}</p>
             </Popup>
           }
       </MapGL>

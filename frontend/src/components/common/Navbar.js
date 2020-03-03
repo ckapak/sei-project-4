@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Auth from '../../lib/auth'
+import logo from '../../assets/logo-via-logohub.png'
 
 class NavBar extends React.Component {
   state = { navOpen: false }
@@ -25,7 +26,9 @@ class NavBar extends React.Component {
       <nav className="navbar is-info">
         <div className="container">
           <div className="navbar-brand">
-            <Link className="navbar-item" to="/">A Quiet Place to Bee</Link>
+            <Link className="navbar-item" to="/">
+            <img src={logo} alt={logo} />
+            </Link>
             <a href="/#"
               className={`navbar-burger ${this.state.navOpen ? 'is-active' : ''}`}
               onClick={this.toggleNavbar}
