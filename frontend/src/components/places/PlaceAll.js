@@ -23,9 +23,11 @@ class PlaceAll extends React.Component {
       <section className="section">
         <div className="container">
           <div className="columns is-three-quarters is-mobile is-multiline">
-            { this.props.history.location.state ? <p> 
-              There's nothing like that in our database!
-            </p> : null
+            { this.props.history.location.state ? 
+            <p> 
+              Unfortunately we can't find anything in your area. Here are some alternatives:
+            </p> 
+            : null
             }
             {this.state.places.map(place =>( 
               <PlaceCard id={place.id} 

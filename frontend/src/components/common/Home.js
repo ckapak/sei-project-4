@@ -42,7 +42,7 @@ class Home extends React.Component {
     // const { search_data } = this.state
     return (
       <>
-        <section className="hero-image is-fullheight-with-navbar">
+        <section className="hero-image is-fullheight-with-navbar is-vcentered">
           <div className="hero-body">
             <div className="columns is-centered">
               <div className="column is-half">
