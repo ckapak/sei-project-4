@@ -22,11 +22,10 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar is-dark">
+      <nav className="navbar is-info">
         <div className="container">
           <div className="navbar-brand">
-            <Link className="navbar-item" to="/">A Quiet Place to Be</Link>
-            
+            <Link className="navbar-item" to="/">A Quiet Place to Bee</Link>
             <a href="/#"
               className={`navbar-burger ${this.state.navOpen ? 'is-active' : ''}`}
               onClick={this.toggleNavbar}

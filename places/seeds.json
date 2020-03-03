@@ -111,30 +111,219 @@
     }
   },
   {
+    "model": "places.place",
+    "pk": 25,
+    "fields": {
+      "name": "Bea's of Bloomsbury",
+      "address": "83 Watling Street London, EC4M 9BX",
+      "postcode": "EC4M 9BX",
+      "latitude": "51.513",
+      "longitude": "-0.094",
+      "description": "This caf\u00e9 is idyllically located next to St Paul's Cathedral, offering a wide range of cupcakes, coffee, JING tea and duffins (doughnut + muffin). They have cushioned booths, free WiFi and an excellent rooftop view of London (sixth floor) when you need a well deserved break!",
+      "image": "https://afternoontea.co.uk/media/3815436/beasatmain.jpg",
+      "facilities": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 26,
+    "fields": {
+      "name": "Foyles",
+      "address": "Foyles, 107 Charing Cross Road, London, WC2H 0DT",
+      "postcode": "WC2H 0DT",
+      "latitude": "51.513",
+      "longitude": "-0.129",
+      "description": "Situated on the fifth floor of one of the best bookshops in the world, The Caf\u00e9 at Foyles is a mini oasis away from the busy streets of London. It is a great place for hot-desking with free WiFi and delicious pastries.",
+      "image": "https://www.foyles.co.uk/cms-uploaded/FOYLES_RFH(1).jpg",
+      "facilities": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 27,
+    "fields": {
+      "name": "Paperchase (Tinderbox Espresso Bar)",
+      "address": "213-215 Tottenham Court Rd, Bloomsbury, W1T 7PS",
+      "postcode": "W1T 7PS",
+      "latitude": "51.520",
+      "longitude": "-0.134",
+      "description": "Hidden away on the first floor is an espresso bar, with lots of plug sockets, WiFi and some of the best iced coffee and milkshakes around! Their floor to ceiling windows also make it the ultimate spot to watch the world go by.",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/12/f1/9b/0a/getlstd-property-photo.jpg",
+      "facilities": [
+        1,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 28,
+    "fields": {
+      "name": "Waterstones (Dillon's Coffee)",
+      "address": "82 Gower St, Bloomsbury, WC1E 6EQ",
+      "postcode": "WC1E 6EQ",
+      "latitude": "51.522",
+      "longitude": "-0.132",
+      "description": "This Scandinavian style coffee house is located on Gower Street (right opposite Malet Place). There's plenty of seating, free WiFi and superb food (pastries, cakes, paninis and salads).",
+      "image": "https://assets.londonist.com/uploads/2018/01/i875/p1260407.jpg",
+      "facilities": [
+        1,
+        3,
+        5
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 29,
+    "fields": {
+      "name": "Yumchaa",
+      "address": "1 Granary Square, Kings Cross, N1C 4AA",
+      "postcode": "N1C 4AA",
+      "latitude": "51.535",
+      "longitude": "-0.125",
+      "description": "If coffee isn't your thing, then head down to this unique loose-leaf tea spot. This shop is bright, thanks to it's spectacular sky-light, and has a relaxed atmosphere. They have WiFi, over 40 varieties of tea, locally roasted coffee and serve a wide range of snacks and pastries.",
+      "image": "https://s3-media0.fl.yelpcdn.com/bphoto/T_1rfu7-hVZNs5G38qPHCA/l.jpg",
+      "facilities": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 30,
+    "fields": {
+      "name": "Timberyard",
+      "address": "7 Upper St Martin's Ln, West End, WC2H 9DL",
+      "postcode": "WC2H 9DL",
+      "latitude": "51.492",
+      "longitude": "-0.216",
+      "description": "This is Europe's best independent coffee shop and is a place where workspace, meeting rooms, food and hot drinks all fuse seamlessly. There are comfy armchairs, tables made from stacked vintage cases and free WiFi.",
+      "image": "https://images.squarespace-cdn.com/content/v1/5c4ddd36a9e028966c5b137a/1554985076916-1J1J84KU4BQPCJSFDBI3/ke17ZwdGBToddI8pDm48kKAwwdAfKsTlKsCcElEApLR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UegTYNQkRo-Jk4EWsyBNhwKrKLo5CceA1-Tdpfgyxoog5ck0MD3_q0rY3jFJjjoLbQ/TY-2019-11.4-17.jpg",
+      "facilities": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 31,
+    "fields": {
+      "name": "Picturehouse Central",
+      "address": "Piccadilly Circus, Great Windmill Str, W1D 7DH",
+      "postcode": "W1D 7DH",
+      "latitude": "51.644",
+      "longitude": "-3.911",
+      "description": "There\u2019s a downstairs cafe area at Picturehouse Central (a huge cinema) where you can go to study, but there\u2019s also a member\u2019s room that draws creatives and media types, has comfy sofas and stays open late.",
+      "image": "https://s3picturehouses.s3.eu-central-1.amazonaws.com/slider/ph_15597477875cf7dccbadac6.jpg",
+      "facilities": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 32,
+    "fields": {
+      "name": "The Ace Hotel",
+      "address": "100 Shoreditch High St, Hackney, E1 6JQ",
+      "postcode": "E1 6JQ",
+      "latitude": "51.333",
+      "longitude": "-0.825",
+      "description": "It\u2019s open 24/7, has a great cafe, is packed with study-friendly amenities like plug sockets galore, free wi-fi, and cozy sofas. And there will be a lot of other people pattering around on laptops, so you\u2019ll have company no matter what time of the day or night you show up.",
+      "image": "https://www.oyster.com/uploads/sites/35/2019/05/lobby-v11237317-1440-1024x683.jpg",
+      "facilities": [
+        1,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 33,
+    "fields": {
+      "name": "The Barbican",
+      "address": "Silk St, Barbican, EC2Y 8DS",
+      "postcode": "EC2Y 8DS",
+      "latitude": "51.519",
+      "longitude": "-0.093",
+      "description": "There are plenty of places to work inside The Barbican, which is one of the most striking pieces of brutalist architecture in London and a place for dance, film, music, theatre, and visual arts.",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0d/ec/bd/89/the-arts-centre-the-lake.jpg",
+      "facilities": [
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 34,
+    "fields": {
+      "name": "Look mum no hands!",
+      "address": "49 Old Street London EC1V 9HX",
+      "postcode": "EC1V 9HX",
+      "latitude": "51.772",
+      "longitude": "-0.011",
+      "description": "A welcoming place to study! You may sit down and sip a cup of coffee made with lots of love. They even fix your bike if you are in a hurry!",
+      "image": "https://d1o0huee1ib439.cloudfront.net/cache/6d6261cecb09ae0c353c566bec746173/Old_street_Look_mum_no_hands_3.jpg",
+      "facilities": [
+        3,
+        5
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 35,
+    "fields": {
+      "name": "Fix Coffee",
+      "address": "126 Curtain Road London EC2A 3PJ",
+      "postcode": "EC2A 3PJ",
+      "latitude": "53.828",
+      "longitude": "-1.540",
+      "description": "Offers exclusive and locally roasted coffee. Relax in one of its wooden-decorated locations whilst you review your notes.",
+      "image": "https://tastingbritain.co.uk/wp-content/uploads/2016/09/IMG_3278_01.jpg",
+      "facilities": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "places.place",
+    "pk": 36,
+    "fields": {
+      "name": "Friends Of Ours",
+      "address": "61 Pitfield St, Hoxton, London N1 6BU",
+      "postcode": "N1 6BU",
+      "latitude": "51.528",
+      "longitude": "-0.083",
+      "description": "Stands out for its tasty coffee and carefully prepared cuisine. The problem of this place is that it can be difficult to study with all that nice food passing by your side\u2026And you may end up having brunch instead of finishing your essay!",
+      "image": "https://mk0europeancoffmnbn2.kinstacdn.com/wp-content/uploads/city-guides/cafes/623/friends-of-ours-london-fb-2.jpg",
+      "facilities": [
+        1,
+        3,
+        5
+      ]
+    }
+  },
+  {
     "model": "places.comment",
     "pk": 7,
     "fields": {
       "text": "this works",
       "place": 1,
       "owner": 2
-    }
-  },
-  {
-    "model": "places.comment",
-    "pk": 10,
-    "fields": {
-      "text": "I did another comment",
-      "place": 1,
-      "owner": null
-    }
-  },
-  {
-    "model": "places.comment",
-    "pk": 11,
-    "fields": {
-      "text": "I did a different comment",
-      "place": 1,
-      "owner": null
     }
   },
   {

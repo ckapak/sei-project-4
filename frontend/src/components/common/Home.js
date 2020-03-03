@@ -42,6 +42,7 @@ class Home extends React.Component {
       // const { search_data } = this.state
       return (
         <>
+        <section className="section hero-image">
           <h1>Find your place to be</h1>
           <hr />
           <form onSubmit={this.handleSubmit}>
@@ -49,7 +50,7 @@ class Home extends React.Component {
             <label className="label">Enter your postcode</label>
             <input
               type="text"
-              className="input u-full-width user-input"
+              className="column is-half is-offset-one-quarter card"
               placeholder="Postcode"
               onChange={this.handleChange}
               name="postcode"
@@ -68,6 +69,7 @@ class Home extends React.Component {
             </div> 
             <button className="button offset-by-three six columns btn-home">Search</button>
           </form>
+          </section>
         </>
       )
     }

@@ -77,7 +77,7 @@ class PlaceShow extends React.Component {
               </figure>
             </div>
             <div className="column is-half">
-              <h4 className="title is-4">What we enjoy most about {place.name}</h4>
+              <h4 className="title is-4">What we love about {place.name}</h4>
               <p>{place.description}</p>
               <hr />
 
@@ -90,6 +90,7 @@ class PlaceShow extends React.Component {
 
               <form className="form title is-4" onSubmit={this.handleSubmit}>
                 Tell us what you think!
+                <hr />
                 <textarea name="text" onChange={this.handleChange}
                   value={this.state.text}
                   placeholder="Type your comment here...maximum character length is 50"></textarea>

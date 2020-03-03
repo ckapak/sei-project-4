@@ -6,4 +6,8 @@ body {
   font-family: 'Khula', sans-serif;
 }
 
-@import './components/homePage'
+@import './components/home';
+@import './components/_navbar';
+@import './components/placecard';
+@import './components/placeshow';
+@import './components/placesmap';
