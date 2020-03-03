@@ -37,8 +37,8 @@ class Login extends React.Component {
 
   render() {
     return (
-      <section className="hero is-primary">
-        <div className="hero-body">
+      <section className="hero is-dark is-fullheight-with-navbar">
+        {/* <div className="hero-body"> */}
           <div className="columns is-centered">
             <div className="column is-half">
               <form onSubmit={this.handleSubmit}>
@@ -73,7 +73,7 @@ class Login extends React.Component {
               </form>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </section>
     )
   }

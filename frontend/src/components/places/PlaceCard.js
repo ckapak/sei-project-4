@@ -13,9 +13,9 @@ const PlaceCard = ({ id, name, image, description }) => (
         <img src={image} alt={name}/>
       </figure>
     </div>
-    <div className="card-content">
+    {/* <div className="card-content">
       <h5 className="title is-6">{description}</h5>
-    </div>
+    </div> */}
   </div>
 </Link>
 )

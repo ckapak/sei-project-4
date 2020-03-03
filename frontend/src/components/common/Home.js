@@ -42,15 +42,11 @@ class Home extends React.Component {
     // const { search_data } = this.state
     return (
       <>
-        <section className="section hero-image">
+        <section className="hero-image is-fullheight-with-navbar">
           <div className="hero-body">
             <div className="columns is-centered">
               <div className="column is-half">
-
-
-                <h2 className="has-text-centered is-info">Find your place to Bee</h2>
-                
-
+                <h2 className="title is-centered is-1">Find your place to Bee</h2>
                 <form onSubmit={this.handleSubmit} className="has-text-centered">
                   <div className="field">
                     <label className="label">Enter your postcode</label>
@@ -63,7 +59,6 @@ class Home extends React.Component {
                       required={true}
                     />
                   </div>
-
                   <div className="field">
                     <label className="label">Select the facilities you need from the list below</label>
                     <div className="control column is-half is-offset-one-quarter card">
@@ -74,11 +69,8 @@ class Home extends React.Component {
                       />
                     </div>
                   </div>
-
-                  <button className="button is-warning is-rounded is-large is-one-quarter">Search</button>
-
+                  <button className="button is-warning is-rounded is-medium is-one-quarter">Search</button>
                 </form>
-
               </div>
             </div>
           </div>

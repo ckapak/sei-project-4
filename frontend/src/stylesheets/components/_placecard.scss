@@ -4,16 +4,16 @@
   flex-direction: column;
 
   .card-image {
-    margin-top: 20px;
+    margin: 40px;
   }
 
-  figure > img {
-    max-height: 400px;
-    width: initial;
-    margin: 0 auto;
-  }
-}
+    figure > img {
+      max-height: 150px;
+      width: initial;
+      margin: 0 auto;
+    }
 
-.card-content {
-    margin-top: 10px;
+  // .card-content {
+  //     margin-top: 10px;
+  // }
 }
