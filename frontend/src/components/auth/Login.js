@@ -67,7 +67,7 @@ class Login extends React.Component {
                   </div>
                   {this.state.error && <small className="help is-danger">{this.state.error}</small>}
                 </div>
-                <button type="submit" className="button is-info is-rounded is-outlined is-medium">Login</button>
+                <button type="submit" className="button is-info is-rounded is-outlined is-medium is-fullwidth">Login</button>
               </div>
             </form>
           </div>

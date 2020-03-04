@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PlaceCard = ({ id, name, image, description }) => (
+const PlaceCard = ({ id, name, image }) => (
 
 <Link to={`/place/${id}`}>
   <div className="card">

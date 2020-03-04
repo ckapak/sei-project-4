@@ -55,9 +55,12 @@ class PlaceIndex extends React.Component {
       <section className="section">
         <div className="container">
           <div className="columns is-mobile is-multiline">
+
             {this.state.places.map(place =>( 
               <Card key={place.id} {...place}/>
             ))}
+
+            
           </div>
         </div>
       </section>    
