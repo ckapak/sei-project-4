@@ -41,7 +41,7 @@ class Login extends React.Component {
         <div className="hero-body">
           <div className="container">
           <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter">
-              <h2 className="title is-1 has-text-warning has-text-centered">Login</h2>
+              <h2 className="title is-1 has-text-warning has-text-centered is-family-code">Login</h2>
               <div className="notification is-light">
                 <div className="field">
                   {/* <label className="label">Email</label> */}
@@ -67,7 +67,7 @@ class Login extends React.Component {
                   </div>
                   {this.state.error && <small className="help is-danger">{this.state.error}</small>}
                 </div>
-                <button type="submit" className="button is-info is-rounded is-outlined is-medium is-fullwidth">Login</button>
+                <button type="submit" className="button is-info is-rounded is-outlined is-medium is-fullwidth is-family-code">Login</button>
               </div>
             </form>
           </div>

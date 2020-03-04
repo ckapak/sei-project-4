@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Auth from '../../lib/auth'
-import logo from '../../assets/logo-via-logohub.png'
+import logo from '../../assets/logo-via-logohub2.png'
 
 class NavBar extends React.Component {
   state = { navOpen: false }
@@ -40,11 +40,11 @@ class NavBar extends React.Component {
           </div>
           <div className={`navbar-menu ${this.state.navOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
-              <Link className="navbar-item" to="/places">See the Hive</Link>
-              <Link className="navbar-item" to="/maps">Map</Link>
-              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Signup</Link>}
-              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
-              {Auth.isAuthenticated() && <Link className="navbar-item" to="/places/new">Add a new place</Link>}
+              <Link className="navbar-item is-family-code" to="/places">See the Hive</Link>
+              <Link className="navbar-item is-family-code" to="/maps">HiveMap</Link>
+              {!Auth.isAuthenticated() && <Link className="navbar-item is-family-code" to="/register">Signup</Link>}
+              {!Auth.isAuthenticated() && <Link className="navbar-item is-family-code" to="/login">Login</Link>}
+              {Auth.isAuthenticated() && <Link className="navbar-item is-family-code" to="/places/new">Add to the Hive</Link>}
               {Auth.isAuthenticated() && <a href="/#" onClick={this.handleLogout} className="navbar-item">Logout</a>}
             </div>
           </div>

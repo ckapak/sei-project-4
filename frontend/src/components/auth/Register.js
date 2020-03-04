@@ -36,7 +36,7 @@ class Register extends React.Component {
           <div className="container">
 
           <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter">
-              <h2 className="title is-1 has-text-warning has-text-centered">Register</h2>
+              <h2 className="title is-1 has-text-warning has-text-centered is-family-code">Register</h2>
                 <div className="notification is-light">
                   <div className="field">
                     {/* <label className="label">Username</label> */}
@@ -90,7 +90,7 @@ class Register extends React.Component {
                   </div>
                   <div className="field">
                     <div className="control">
-                      <button type="submit" className="button is-info is-rounded is-outlined is-medium is-fullwidth">Register</button>
+                      <button type="submit" className="button is-info is-rounded is-outlined is-medium is-fullwidth is-family-code">Signup</button>
                     </div>
                   </div>
                 </div>

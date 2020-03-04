@@ -7,7 +7,7 @@ const PlaceForm = ({ data, options, handleChange, handleSubmit, handleMultiChang
       <div className="hero-body">
         <div className="container">
           <form className="column is-half is-offset-one-quarter" onSubmit={handleSubmit}>
-            <h2 className="title is-1 has-text-warning has-text-centered">Add a place to the Hive</h2>
+            <h2 className="title is-1 has-text-warning has-text-centered is-family-code">Add a place to the Hive</h2>
             <div className="notification is-light">
 
               <div className="field">
@@ -86,7 +86,7 @@ const PlaceForm = ({ data, options, handleChange, handleSubmit, handleMultiChang
               </div>
               <div className="field">
                 <div className="control">
-                  <button type="submit" className="button is-info is-rounded is-outlined is-medium is-fullwidth">Add a place</button>
+                  <button type="submit" className="button is-info is-rounded is-outlined is-medium is-fullwidth is-family-code">Add a place</button>
                 </div>
               </div>
             </div>

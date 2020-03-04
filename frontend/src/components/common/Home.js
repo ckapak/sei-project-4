@@ -47,7 +47,7 @@ class Home extends React.Component {
           <div className="hero-body">
             <div className="container">
 
-              <p className="title is-1 has-text-warning has-text-centered">Find your place to Bee.LDN</p>
+              <p className="title is-1 has-text-warning has-text-centered is-family-code">Find your place to Bee.LDN</p>
               <p className="has-text-white has-text-centered">Searching for a FREE place to study in London? Use our search below!</p>
 
                 <form className="has-text-centered" onSubmit={this.handleSubmit}>
