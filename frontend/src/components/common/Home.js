@@ -52,7 +52,7 @@ class Home extends React.Component {
 
                 <form className="has-text-centered" onSubmit={this.handleSubmit}>
                   <div className="field">
-                    <label className="label has-text-white has-text-centered">Enter your postcode</label>
+                    <label className="label has-text-white has-text-centered">Enter your postcode here:</label>
                     <input
                       type="text"
                       className="column is-half is-offset-one-quarter card"
@@ -63,7 +63,7 @@ class Home extends React.Component {
                     />
                   </div>
                   <div className="field">
-                    <label className="label has-text-white has-text-centered">Select the facilities you need from the list below</label>
+                    <label className="label has-text-white has-text-centered">Select the facilities you require from the dropdown below:</label>
                     <div className="control column is-half is-offset-one-quarter card">
                       <Select
                         options={this.options}

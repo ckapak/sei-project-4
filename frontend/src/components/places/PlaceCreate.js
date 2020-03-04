@@ -20,17 +20,17 @@ class PlaceCreate extends React.Component {
   }
 
   options = [
-    { value: 'desks', label: 'Desks'},
-    { value: 'charging', label: 'Charging Plugs'},
-    { value: 'cafe', label: 'Cafe onsite'},
-    { value: 'sofas', label: 'Comfy sofas'},
-    { value: 'wifi', label: 'Wifi'}
+    { value: 'desks', label: 'Desks' },
+    { value: 'charging', label: 'Charging Plugs' },
+    { value: 'cafe', label: 'Cafe onsite' },
+    { value: 'sofas', label: 'Comfy sofas' },
+    { value: 'wifi', label: 'Wifi' }
   ]
-    
+
   handleMultiChange = (selected) => {
     const choices = selected ? selected.map(item => item.value) : []
     this.setState({ choices })
-  } 
+  }
 
   handleChange = e => {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
@@ -53,14 +53,13 @@ class PlaceCreate extends React.Component {
 
   render() {
     return (
-      <section className="section">
-        <div className="container">
-          <h1>Add a place to our database</h1>
+      <section className="is-dark is-fullheight-with-navbar">
+        <div className="hero-body">
           <PlaceForm
             data={this.state.data}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
-            options = {this.options}
+            options={this.options}
             handleMultiChange={this.handleMultiChange}
             errors={this.state.errors}
           />
