@@ -67,7 +67,7 @@ class PlaceShow extends React.Component {
       
       <section className="section show">
         <div className="container">
-          <h2 className="title">{place.name}</h2>
+          <h2 className="title is-family-code">{place.name}</h2>
           <h2 className="address">You'll find it here: {place.address}</h2>
           <hr />
           <div className="columns">
@@ -75,25 +75,29 @@ class PlaceShow extends React.Component {
               <figure className="image">
                 <img src={place.image} alt={place.name} />
               </figure>
-            </div>
-            <div className="column is-half">
-              <h4 className="title is-4">What we love about {place.name}</h4>
-              <p>{place.description}</p>
-              <hr />
-
-              <h4 className="title is-4">The amenities</h4>
+              <hr/>
+              <h4 className="title is-4 is-family-code">The amenities</h4>
               <div className="facility-text">{place.facilities.map(facility =>
                 <div key={facility.id}>
                   {facility.name}
                 </div>)}</div>
+
+
+              <hr />
+            </div>
+            <div className="column is-half">
+
+            <h4 className="title is-4 is-family-code">What we love about {place.name}</h4>
+              <p>{place.description}</p>
+
                 <hr />
 
-              <form className="form title is-4" onSubmit={this.handleSubmit}>
+              <form className="form title is-4 is-family-code" onSubmit={this.handleSubmit}>
                 Tell us what you think!
                 <hr />
                 <textarea name="text" onChange={this.handleChange}
                   value={this.state.text}
-                  placeholder="Type your comment here...maximum character length is 50"></textarea>
+                  placeholder="Send us your review...maximum character length is 50"></textarea>
                 <br />
                 <input type="submit" value="Submit" />
               </form>
@@ -105,6 +109,8 @@ class PlaceShow extends React.Component {
                     </p>
                   </figure> */}
                   <div className="media-content">
+                  <h4 className="title is-4 is-family-code">Reviews from our members:</h4>
+                    <hr/>
                     <div className="content"> {place.comments.map(comment =>
                         <div key={comment.id}>
                       <p>
