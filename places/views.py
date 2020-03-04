@@ -8,6 +8,9 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .models import Place, Comment
 from .serializers import PlaceSerializer, PopulatedPlaceSerializer, CommentSerializer
 
+from django.contrib.gis.geos import Point
+from django.contrib.gis.db.models.functions import Distance
+
 class PlaceListView(APIView): 
     permission_classes = (IsAuthenticatedOrReadOnly, )
 
@@ -17,14 +20,26 @@ class PlaceListView(APIView):
       Optionally restricts the returned place to a given user,
       by filtering against a `postcode` query parameter in the URL.
       """
-      queryset = Place.objects.all()
+      queryset = None 
+
+      latitude = self.request.query_params.get('latitude', None)
+      longitude = self.request.query_params.get('longitude', None)    
+      if latitude is not None and longitude is not None:
+        user_location = Point(float(longitude), float(latitude), srid=4326)
+        queryset = Place.objects.annotate(distance=Distance('location', user_location)).order_by('distance')[0:3]
+      else:
+        queryset = Place.objects.all()
+
       postcode = self.request.query_params.get('postcode', None)
       if postcode is not None:
         queryset = queryset.filter(postcode__istartswith=postcode)
+
       facilities = self.request.query_params.get('facilities', None)
       if facilities is not None:
         queryset = queryset.filter(facilities__name__icontains=facilities)
+      
       serialized_place = PopulatedPlaceSerializer(queryset, many=True)
+
       return Response(serialized_place.data) # send the JSON to the client
 
 # create a place

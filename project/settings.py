@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'places',
     'facilities',
     'jwt_auth',
+    'django.contrib.gis'
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
   'default':
   {
-    'ENGINE':'django.db.backends.postgresql_psycopg2',
+    'ENGINE': 'django.contrib.gis.db.backends.postgis',
     'NAME':'sei-project-4',
     'HOST':'localhost',
     'PORT':5432

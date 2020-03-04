@@ -3,8 +3,7 @@ import axios from 'axios'
 import Card from './PlaceCard'
 // import MapGL from 'react-map-gl'
 // import 'mapbox-gl/dist/mapbox-gl.css'
-
-const mapboxToken = process.env.MAPBOX_ACCESS_TOKEN
+// const mapboxToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
 class PlaceIndex extends React.Component {
   state = {
@@ -19,14 +18,14 @@ class PlaceIndex extends React.Component {
     this.convertData()
   }
 
-  checkResults = (places) => {
+  checkResults = (places, postcode) => {
     const noResult = true
 
     if (!places.length) {
       this.props.history.push({
         pathname: '/places',
         search: '',
-        state: { noResult }
+        state: { noResult, postcode }
       })
     }
   } 
@@ -37,10 +36,9 @@ class PlaceIndex extends React.Component {
       .replace(/[^a-z0-9]/gi, '')
       .slice(0, 3).toLowerCase()
 
-      console.log(shortPostcode)
-
       const queries = [`postcode=${shortPostcode}`]
-      for (const choice of findLocation.choices) {
+
+      for (const choice of findLocation.choices.filter(x => x)) {
         queries.push("facilities=" + choice)
       }
       
@@ -49,28 +47,7 @@ class PlaceIndex extends React.Component {
       console.log(response.data)
 
       this.setState({ places: response.data })
-      this.checkResults(response.data)
-  }
-
-  // const first_place = this.state.places[0] ? this.state.places[0] : findLocation
-
-  convertPostcode = async (location) => {
-    const resMap = await axios.get(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${location.postcode}.json?access_token=${mapboxToken}`
-    )
-    return {
-      latitude: resMap.data.features[0].center[1],
-      longitude: resMap.data.features[0].center[0],
-    }
-    // this.setState({
-    //   ...this.state,
-    //   viewport: {
-    //     ...this.state.viewport,
-    //     latitude: resMap.data.features[0].center[1],
-    //     longitude: resMap.data.features[0].center[0],
-    //     zoom: 12
-    //   }
-    // })
+      this.checkResults(response.data, findLocation.postcode)
   }
 
   render() {

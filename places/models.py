@@ -1,5 +1,6 @@
 # pylint: disable=no-member
-from django.db import models
+from django.contrib.gis.db import models
+# from django.db import models
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -12,6 +13,7 @@ class Place(models.Model):
   postcode = models.CharField(max_length=8)
   latitude = models.DecimalField(max_digits=6, decimal_places=3, null=True)
   longitude = models.DecimalField(max_digits=6, decimal_places=3, null=True)
+  location = models.PointField(null=True)
   description = models.CharField(max_length=300, default='')
   image = models.CharField(max_length=500)
   facilities = models.ManyToManyField('facilities.Facility', related_name='facilities', blank=True)

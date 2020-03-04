@@ -41,15 +41,18 @@ class Home extends React.Component {
   render() {
     // const { search_data } = this.state
     return (
-      <>
-        <section className="hero-image is-fullheight-with-navbar is-vcentered">
+
+        <section className="hero is-fullheight-with-navbar">
+
           <div className="hero-body">
-            <div className="columns is-centered">
-              <div className="column is-half">
-                <h2 className="title is-centered is-1">Find your place to Bee</h2>
-                <form onSubmit={this.handleSubmit} className="has-text-centered">
+            <div className="container">
+
+              <p className="title is-1 has-text-warning has-text-centered">Find your place to Bee.LDN</p>
+              <p className="has-text-white has-text-centered">Searching for a FREE place to study in London? Use our search below!</p>
+
+                <form className="has-text-centered" onSubmit={this.handleSubmit}>
                   <div className="field">
-                    <label className="label">Enter your postcode</label>
+                    <label className="label has-text-white has-text-centered">Enter your postcode</label>
                     <input
                       type="text"
                       className="column is-half is-offset-one-quarter card"
@@ -60,7 +63,7 @@ class Home extends React.Component {
                     />
                   </div>
                   <div className="field">
-                    <label className="label">Select the facilities you need from the list below</label>
+                    <label className="label has-text-white has-text-centered">Select the facilities you need from the list below</label>
                     <div className="control column is-half is-offset-one-quarter card">
                       <Select
                         options={this.options}
@@ -71,11 +74,12 @@ class Home extends React.Component {
                   </div>
                   <button className="button is-warning is-rounded is-medium is-one-quarter">Search</button>
                 </form>
-              </div>
+
             </div>
           </div>
+
         </section>
-      </>
+
     )
   }
 }
