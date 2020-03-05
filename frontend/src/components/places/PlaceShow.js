@@ -17,7 +17,6 @@ class PlaceShow extends React.Component {
       this.setState({
         place: response.data
       })
-      console.log(response.data)
     } catch (err) {
       this.props.history.push('/notfound')
     }

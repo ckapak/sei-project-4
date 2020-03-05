@@ -31,23 +31,21 @@ class PlaceIndex extends React.Component {
   } 
 
   convertData = async() => {
-    const findLocation = this.props.history.location.state.find_location
-    const shortPostcode = findLocation.postcode
+    const location = this.props.history.location.state.find_location
+    const postcode = location.postcode
+    const shortPostcode = postcode
       .replace(/[^a-z0-9]/gi, '')
       .slice(0, 3).toLowerCase()
 
       const queries = [`postcode=${shortPostcode}`]
 
-      for (const choice of findLocation.choices.filter(x => x)) {
+      for (const choice of location.choices.filter(x => x)) {
         queries.push("facilities=" + choice)
       }
       
       const response = await axios.get(`/api/places?${queries.join('&')}`)
-
-      console.log(response.data)
-
       this.setState({ places: response.data })
-      this.checkResults(response.data, findLocation.postcode)
+      this.checkResults(response.data, postcode)
   }
 
   render() {

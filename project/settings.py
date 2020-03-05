@@ -96,14 +96,6 @@ DATABASES = {
   }
 }
 
-import dj_database_url
-
-DATABASES['default'] =  dj_database_url.config()
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -161,6 +153,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend', "build", "static"), 
 )
-
-django_heroku.settings(locals()) 
-DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
