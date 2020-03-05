@@ -72,7 +72,7 @@ class Home extends React.Component {
                       />
                     </div>
                   </div>
-                  <button className="button is-warning is-rounded is-medium is-one-quarter">Search</button>
+                  <button className="button is-warning is-rounded is-medium is-one-quarter is-family-code">Search</button>
                 </form>
 
             </div>

@@ -93,11 +93,11 @@ class PlaceShow extends React.Component {
                 <hr />
 
               <form className="form title is-4 is-family-code" onSubmit={this.handleSubmit}>
-                Tell us what you think!
+                Tell us what you think! Send in your review:
                 <hr />
                 <textarea name="text" onChange={this.handleChange}
                   value={this.state.text}
-                  placeholder="Send us your review...maximum character length is 50"></textarea>
+                  placeholder="Maximum character length for your comment is 50"></textarea>
                 <br />
                 <input type="submit" value="Submit" />
               </form>
