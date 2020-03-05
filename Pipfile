@@ -14,6 +14,7 @@ djangorestframework = "*"
 pyjwt = "*"
 django-cors-headers = "*"
 django-heroku = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.7"
