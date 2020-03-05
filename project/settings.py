@@ -43,11 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'rest_framework',
     'places',
     'facilities',
     'jwt_auth',
-    'django.contrib.gis'
+    
 ]
 
 MIDDLEWARE = [
@@ -95,12 +96,13 @@ DATABASES = {
   }
 }
 
-
 import dj_database_url
 
 DATABASES['default'] =  dj_database_url.config()
 DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
