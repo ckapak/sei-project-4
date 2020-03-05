@@ -14,10 +14,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-# import dj_database_url
-# DATABASES['default'] =  dj_database_url.config()
-# DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
-
 GDAL_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgdal.so"
 GEOS_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgeos_c.so"
 
@@ -98,6 +94,13 @@ DATABASES = {
     'PORT':5432
   }
 }
+
+
+import dj_database_url
+
+DATABASES['default'] =  dj_database_url.config()
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+
 
 
 # Password validation
