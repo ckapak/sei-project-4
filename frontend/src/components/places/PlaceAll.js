@@ -7,11 +7,11 @@ const mapboxToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 class PlaceAll extends React.Component {
 
   state = {
-    places: []
+    places: [],
   }
 
   async componentDidMount() {
-    debugger
+    
     const postcode = this.props.history.location.state.postcode
 
     if (postcode) {

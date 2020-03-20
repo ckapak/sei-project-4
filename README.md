@@ -6,7 +6,7 @@ This was my final project on the Software Engineering Immersive course at Genera
 
 ## Brief
 
-To plan and build a full-stack application by making my own backend and frontend in one-week. Must a Python Django API using Django REST to serve data from a Postgres database. This must incorporate a separate frontend which is built with React.
+To plan and build a full-stack application by making my own backend and frontend in one-week. The app must use a Python Django API using Django REST to serve data from a Postgres database. This must incorporate a separate frontend which is built with React.
 
 ## Technologies
 
@@ -18,7 +18,7 @@ The app was built with:
 - Python
 - Django
 - PostgreSQL
-- Postgris
+- PostGIS extension for supporting spatial features in the PostgreSQL database
 
 ## Deployment
 
@@ -58,6 +58,20 @@ The app is comprised of the following pages:
 
 ### Homepage
 
+The user is able to search for the area they wish to study in by postcode and by multiple categories. 
+
+
+
+
+Added PostGIS, which adds geographic object support to PostgreSQL, turning it into a spatial database. 
+
+It meant changing the places model and using PointField for the location (a GeoDjango-specific geometric field for storing a GEOS Point object that represents a pair of longitude and latitude coordinates).
+
+```
+  location = models.PointField(null=True)
+```
+I changed the 'get all places' function in views
+
 ```
     def get(self, request):
 
@@ -82,37 +96,6 @@ The app is comprised of the following pages:
       serialized_place = PopulatedPlaceSerializer(queryset, many=True)
 
       return Response(serialized_place.data)
-```
-
-
-```
-  async componentDidMount() {
-    const postcode = this.props.history.location.state.postcode;
-
-    if (postcode) {
-      const postcode = this.props.history.location.state.postcode
-
-      console.log('Using postcode: ' + postcode)
-      const lnglat = await this.convertPostcode(postcode)
-      const queries = [`longitude=${lnglat.longitude}`, `latitude=${lnglat.latitude}`]
-
-      try {
-        const response = await axios.get(`/api/places?${queries.join('&')}`)
-        this.setState({ places: response.data })
-        console.log(response)
-      } catch (err) {
-        this.props.history.push('/notfound')
-      }
-    } else {
-      try {
-        const response = await axios.get(`/api/places/`)
-        this.setState({ places: response.data })
-        console.log(response)
-      } catch (err) {
-        this.props.history.push('/notfound')
-      }
-    }
-  }
 ```
 
 ### Register & Login
