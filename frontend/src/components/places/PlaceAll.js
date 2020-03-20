@@ -11,11 +11,12 @@ class PlaceAll extends React.Component {
   }
 
   async componentDidMount() {
-    
-    const postcode = this.props.history.location.state.postcode
+    const location = this.props.history.location
+    // const location = { state: undefined }
+    console.log('location: ', location)
 
-    if (postcode) {
-      const postcode = this.props.history.location.state.postcode
+    if (location.state && location.state.postcode) {
+      const postcode = location.state.postcode
 
       console.log('Using postcode: ' + postcode)
       const lnglat = await this.convertPostcode(postcode)
@@ -35,9 +36,11 @@ class PlaceAll extends React.Component {
         console.log(response)
       } catch (err) {
         this.props.history.push('/notfound')
+
       }
     }
   }
+
 
   convertPostcode = async (postcode) => {
     const results = await axios.get(
