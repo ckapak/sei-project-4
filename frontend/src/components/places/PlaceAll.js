@@ -11,6 +11,7 @@ class PlaceAll extends React.Component {
   }
 
   async componentDidMount() {
+    debugger
     const postcode = this.props.history.location.state.postcode
 
     if (postcode) {
