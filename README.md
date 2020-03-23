@@ -40,8 +40,6 @@ $ pipenv shell
 $ pipenv install psycopg2-binary  
 $ createdb sei-project-4
 
-## Postgris
-
 <!-- Migrate everything from the backend -->
 $ python manage.py migrate
 
@@ -59,9 +57,6 @@ The app is comprised of the following pages:
 ### Homepage
 
 The user is able to search for the area they wish to study in by postcode and by multiple categories. 
-
-
-
 
 Added PostGIS, which adds geographic object support to PostgreSQL, turning it into a spatial database. 
 
