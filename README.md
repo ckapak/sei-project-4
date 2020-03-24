@@ -116,7 +116,7 @@ I amended views.py so that the places were ordered by distance:
 
 Using Mapbox and its handy popup and marker components, users can see all the study places on a map (called 'HiveMap' on the app). 
 
-![picture](frontend/src/assets/comment.png)
+![picture](frontend/src/assets/map.png)
 
 ### Register & Leaving A Review
 
