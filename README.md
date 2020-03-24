@@ -55,13 +55,17 @@ $ python manage.py runserver
 
 Before I created the app, I used an Entity Relationship Diagram (ERD) program from QuickDBD (www.quickdatabasediagrams.com) to help visualise the relationships between the models. 
 
-![picture](src/assets/diagram.png)
+![picture](frontend/src/assets/diagram.png)
 
 The app is comprised of the following pages:
 
 ### Homepage
 
-The user is able to search for the location where they wish to study by postcode and by multiple categories (known as the facilities model). 
+The user is able to search for the location where they wish to study by postcode and by multiple categories. 
+
+![picture](frontend/src/assets/home.png)
+
+![picture](frontend/src/assets/home2.png)
 
 I added a PostGIS extension, which adds geographic object support to PostgreSQL, turning it into a spatial database. The intention was that, if the user search for a place but nothing was available in that postcode, they could see places that were nearby. 
 
@@ -112,18 +116,18 @@ I amended views.py so that the places were ordered by distance:
 
 Using Mapbox and its handy popup and marker components, users can see all the study places on a map (called 'HiveMap' on the app). 
 
-![picture](src/assets/map.png)
+![picture](frontend/src/assets/comment.png)
 
 ### Register & Leaving A Review
 
 Once registered and logged in, users have the ability to review the study place. 
 
-![picture](src/assets/register.png)
+![picture](frontend/src/assets/register.png)
 
-![picture](src/assets/comment.png)
+![picture](frontend/src/assets/comment.png)
 
 ## Challenges & Future Improvements
 
 I spent a significant amount of time researching and carefully implementing the PostGIS extension and querysets to make the search functionality more sophisticated, so it meant that I couldn't test my React components. Nevetheless, I used Insomnia to test every API call to ensure that I could retrieve the JSON data and check the responses. I made necessary adjustments when the data returned the wrong response.  
 
-![picture](src/assets/insomnia.png)
+![picture](frontend/src/assets/insomnia.png)
