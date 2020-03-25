@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const PlaceCard = ({ id, name, image }) => (
 
+<div className="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
 <Link to={`/place/${id}`}>
   <div className="card">
     <div className="card-header">
@@ -18,6 +19,7 @@ const PlaceCard = ({ id, name, image }) => (
     </div> */}
   </div>
 </Link>
+</div>
 )
 
 export default PlaceCard
