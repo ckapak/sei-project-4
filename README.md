@@ -4,6 +4,10 @@
 
 This was my final solo project on the Software Engineering Immersive course at General Assembly.
 
+**A Quiet Place to Bee.LDN** is an app where users can search for a quiet place to study by postcode in London and by the facilities they require: WiFi, comfy sofas, desks, charging plugs, and onsite cafe. 
+
+I got my inspiration from project three ('Out and About' events) where our group was unable to find a suitable place to study in London. I couldn't find a website that had a list with more than ten places with user reviews - so this was a great opportunity to create something myself!
+
 ## Brief
 
 To plan and build a full-stack application by making my own backend and frontend in one-week. The app must use a Python Django API (Django REST) to serve data from a Postgres database. This must incorporate a separate frontend which is built with React.
@@ -112,6 +116,18 @@ I amended views.py so that the places were ordered by distance:
       return Response(serialized_place.data)
 ```
 
+So if there's nothing within the vicinity of postcode W1G in Mayfair, the app suggests places that are nearby:
+
+![picture](frontend/src/assets/nearby.png)
+
+PaperChase is located in postcode W1T, Foyles is WC2H and Waterstones is in WC1E. 
+
+### Places
+
+Here's a snippet of the list of places found on the 'HiveList':
+
+![picture](frontend/src/assets/allplaces.png)
+
 ### Map
 
 Using Mapbox and its handy popup and marker components, users can see all the study places on a map (called 'HiveMap' on the app). 
@@ -120,14 +136,23 @@ Using Mapbox and its handy popup and marker components, users can see all the st
 
 ### Register & Leaving A Review
 
+If the user isn't logged in, they can't make comments:
+
+![picture](frontend/src/assets/loggedout.png)
+
 Once registered and logged in, users have the ability to review the study place. 
 
 ![picture](frontend/src/assets/register.png)
 
 ![picture](frontend/src/assets/comment.png)
 
+
 ## Challenges & Future Improvements
 
-I spent a significant amount of time researching and carefully implementing the PostGIS extension and querysets to make the search functionality more sophisticated, so it meant that I couldn't test my React components. Nevetheless, I used Insomnia to test every API call to ensure that I could retrieve the JSON data and check the responses. I made necessary adjustments when the data returned the wrong response.  
+I spent a significant amount of time implementing the PostGIS extension and querysets to make the search functionality more sophisticated, so it meant that I couldn't test my React components. Nevetheless, I used Insomnia to test every API call to ensure that I could retrieve the JSON data and check the responses. I made necessary adjustments when the data returned the wrong response.  
 
 ![picture](frontend/src/assets/insomnia.png)
+
+I would love to add a component on the SHOW page where users can see a list of places nearby (now that PostGIS is working) and a weather forecast.
+
+Also, this is the London edition of the app - it would be great to expand it to other cities!
