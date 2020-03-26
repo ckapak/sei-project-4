@@ -50,10 +50,10 @@ class PlaceShow extends React.Component {
     }
   }
 
-//   isOwner = () => {
-//     console.log(this.state.place.user)
-//     return Auth.getPayload().sub === this.state.place.user.id
-// }
+  isOwner = () => {
+    console.log(this.state.place.user)
+    return Auth.getPayload().sub === this.state.place.user.id
+  }
 
   render() {
     if (!this.state.place.id)
@@ -63,7 +63,7 @@ class PlaceShow extends React.Component {
     console.log(this.state.place)
     console.log(this.state.text, 'text')
     return (
-      
+
       <section className="section show">
         <div className="container">
           <h2 className="title is-family-code">{place.name}</h2>
@@ -74,26 +74,27 @@ class PlaceShow extends React.Component {
               <figure className="image">
                 <img src={place.image} alt={place.name} />
               </figure>
-              <hr/>
+              <hr />
               <h4 className="title is-4 is-family-code">The amenities</h4>
               <div className="facility-text">{place.facilities.map(facility =>
                 <div key={facility.id}>
                   {facility.name}
                 </div>)}</div>
-
-
               <hr />
             </div>
             <div className="column is-half">
-
-            <h4 className="title is-4 is-family-code">What we love about {place.name}</h4>
+              <h4 className="title is-4 is-family-code">What we love about {place.name}</h4>
               <p>{place.description}</p>
-
-                <hr />
+              <hr />
 
               <form className="form title is-4 is-family-code" onSubmit={this.handleSubmit}>
                 Tell us what you think! Send in your review:
                 <hr />
+                {!Auth.isAuthenticated() &&
+                  <div className="message-header">
+                    <p>Please login to add your review</p>
+                  </div>
+                }
                 <textarea name="text" onChange={this.handleChange}
                   value={this.state.text}
                   placeholder="Maximum character length for your comment is 50"></textarea>
@@ -102,31 +103,20 @@ class PlaceShow extends React.Component {
               </form>
 
               <article className="media">
-                  {/* <figure className="media-left">
-                    <p class="image is-64x64">
-                      <img src="https://bulma.io/images/placeholders/128x128.png" />
-                    </p>
-                  </figure> */}
-                  <div className="media-content">
+                <div className="media-content">
                   <h4 className="title is-4 is-family-code">Reviews from our members:</h4>
-                    <hr/>
-                    <div className="content"> {place.comments.map(comment =>
-                        <div key={comment.id}>
+                  <hr />
+                  <div className="content"> {place.comments.map(comment =>
+                    <div key={comment.id}>
                       <p>
                         <strong>{comment.owner.username}</strong>
-                        <br/>"{comment.text}"<br/>
+                        <br />"{comment.text}"<br />
                       </p>
                       <hr />
                     </div>)}
                   </div>
-                  </div>
-                </article>
-
-              {/* <div className="comment-text">{place.comments.map(comment =>
-                <div key={comment.id}>
-                  <h2>{comment.text} - {comment.owner}</h2>
-                </div>)}</div>
-              <hr /> */}
+                </div>
+              </article>
 
               {/* {this.isOwner() &&
                 <>
