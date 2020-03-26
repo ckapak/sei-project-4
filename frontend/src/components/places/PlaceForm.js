@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 
-const PlaceForm = ({ data, options, handleChange, handleSubmit, handleMultiChange, errors }) => {
+const PlaceForm = ({ data, options, handleChange, handleSubmit, handleUpload, handleMultiChange }) => {
   return (
     <section className="is-dark is-fullheight-with-navbar">
       <div className="hero-body">
@@ -13,54 +13,51 @@ const PlaceForm = ({ data, options, handleChange, handleSubmit, handleMultiChang
               <div className="field">
                 <div className="control">
                   <input
-                    className={`input ${errors.name ? 'is-danger' : ''}`}
-                    placeholder="e.g. The Breakfast Club"
+                    className="input"
+                    required
+                    placeholder="Name of the place e.g. The Breakfast Club"
                     name="name"
                     onChange={handleChange}
-                    value={data.name}
-                    required={true}
+                    // value={data.name}
                   />
                 </div>
-                {errors.name && <small className="help is-danger">{errors.name}</small>}
               </div>
 
               <div className="field">
                 <div className="control">
                   <input
-                    className={`input ${errors.address ? 'is-danger' : ''}`}
+                    className="input"
                     placeholder="Address"
                     name="address"
                     onChange={handleChange}
-                    value={data.address}
+                    // value={data.address}
                   />
                 </div>
-                {errors.address && <small className="help is-danger">{errors.address}</small>}
               </div>
 
               <div className="field">
                 <div className="control">
                   <input
-                    className={`input ${errors.postcode ? 'is-danger' : ''}`}
+                    className="input"
                     placeholder="Postcode"
                     name="postcode"
                     onChange={handleChange}
-                    value={data.postcode}
+                    // value={data.postcode}
                   />
                 </div>
-                {errors.postcode && <small className="help is-danger">{errors.postcode}</small>}
               </div>
 
               <div className="field">
                 <div className="control">
                   <input
-                    className={`input ${errors.image ? 'is-danger' : ''}`}
+                    className="image"
                     placeholder="Image"
+                    type="file"
                     name="image"
-                    onChange={handleChange}
-                    value={data.image}
+                    onChange={handleUpload}
+                    // value={data.image}
                   />
                 </div>
-                {errors.image && <small className="help is-danger">{errors.image}</small>}
               </div>
 
               <div className="field">
@@ -70,7 +67,7 @@ const PlaceForm = ({ data, options, handleChange, handleSubmit, handleMultiChang
                     placeholder="Description"
                     name="description"
                     onChange={handleChange}
-                    value={data.description}
+                    // value={data.description}
                   />
                 </div>
               </div>

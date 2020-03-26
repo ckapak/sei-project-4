@@ -2,7 +2,6 @@ import React from 'react'
 import PlaceForm from './PlaceForm'
 // import { headers } from '../../lib/headers'
 import Auth from '../../lib/auth'
-
 import axios from 'axios'
 
 class PlaceCreate extends React.Component {
@@ -12,11 +11,10 @@ class PlaceCreate extends React.Component {
       name: '',
       address: '',
       postcode: '',
-      image: '',
+      image:  null,
       description: '',
       choices: ['']
-    },
-    errors: {}
+    }  
   }
 
   options = [
@@ -32,22 +30,33 @@ class PlaceCreate extends React.Component {
     this.setState({ choices })
   }
 
-  handleChange = e => {
-    const data = { ...this.state.data, [e.target.name]: e.target.value }
-    const errors = { ...this.state.errors, [e.target.name]: '' }
-    this.setState({ data, errors })
+  handleChange = ({ target: { name, value } }) => {
+    const data = { ...this.state.data, [name]: value }
+    this.setState({ data })
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault()
+  handleUpload = async ({ target: { files } }) => {
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'an5meedt')
+    const res = await axios.post('https://api.cloudinary.com/v1_1/ckapak/image/upload', data)
+    console.log(res)
+    this.setState({ image: res.data.url }, () => {
+      // callback function 
+      this.handleChange({ target: { name: 'image', value: res.data.url } })
+    })
+  }
 
+
+  handleSubmit = async e => {
+    e.preventDefault()
     try {
-      const { data } = await axios.post('/api/places/', this.state.data, {
+      const res = await axios.post('/api/places/', this.state.data, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      this.props.history.push(`/places/${data.id}`)
+      this.props.history.push(`/places/${res.data.id}`)
     } catch (err) {
-      this.setState({ errors: err.response.data.errors })
+      this.props.history.push('/notfound')
     }
   }
 
@@ -59,6 +68,7 @@ class PlaceCreate extends React.Component {
             data={this.state.data}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
+            handleUpload={this.handleUpload}
             options={this.options}
             handleMultiChange={this.handleMultiChange}
             errors={this.state.errors}
