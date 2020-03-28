@@ -146,12 +146,15 @@ Once registered and logged in, users have the ability to review the study place.
 
 ![picture](frontend/src/assets/comment.png)
 
+## Wins & Key Learnings
 
-## Challenges & Future Improvements
+Because we had one week to build the project, my intention was to start with fewer models and take a steady pace with using Django. And I'm really glad that I took this strategy! It meant that I could spend a significant amount of time implementing the PostGIS extension and querysets to make the search more sophisticated. 
 
-I spent a significant amount of time implementing the PostGIS extension and querysets to make the search functionality more sophisticated, so it meant that I couldn't test my React components. Nevetheless, I used Insomnia to test every API call to ensure that I could retrieve the JSON data and check the responses. I made necessary adjustments when the data returned the wrong response.  
+However I still ran out of time and I couldn't test my React components. Nevetheless, I used Insomnia to test every API call to ensure that I could retrieve the JSON data and check the responses. I made necessary adjustments when the data returned the wrong response.  
 
 ![picture](frontend/src/assets/insomnia.png)
+
+## Future Improvements
 
 I would love to add a component on the SHOW page where users can see a list of places nearby (now that PostGIS is working) and a weather forecast.
 
