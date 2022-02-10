@@ -16,7 +16,7 @@
     "js-cookie": "^2.2.1",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^1.8.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-icons": "^3.9.0",
