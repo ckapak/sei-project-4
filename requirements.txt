@@ -1,6 +1,6 @@
 appdirs==1.4.3
 astroid==2.3.3
-certifi==2019.11.28
+certifi==2022.12.7
 distlib==0.3.0
 filelock==3.0.12
 GDAL==2.4.4
